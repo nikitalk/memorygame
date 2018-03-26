@@ -48,8 +48,49 @@ function shuffle(array) {
 
 refreshDeck();
 
+let selectedCard;
+let firstCard = '';
+let secondCard = '';
 
+decklist.addEventListener("click", function(event) {
+    let target = event.target;
 
+    if (target.tagName == 'LI') {
+        showCard(target);
+    }
+  
+});
+
+function showCard(node) {
+       if (firstCard == '') {
+        firstCard = node.getElementsByTagName("i")[0].className;
+        console.log(firstCard);
+        node.classList.add('open', 'show');
+        selectedCard = node;
+    } else {
+          secondCard = node.getElementsByTagName("i")[0].className;
+          node.classList.add('open', 'show');
+          console.log(secondCard);
+          
+          setTimeout(func, 1000);
+          function func () {
+            if (firstCard === secondCard) {
+                selectedCard.classList.remove('open', 'show');
+                node.classList.remove('open', 'show');
+                  selectedCard.classList.add('match');
+                  node.classList.add('match');
+                  firstCard = '';
+                  secondCard = '';
+              } else {
+                 selectedCard.classList.remove('open', 'show');
+                node.classList.remove('open', 'show');
+                firstCard = '';
+                  secondCard = '';
+              }
+          }
+      }
+      
+};
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
