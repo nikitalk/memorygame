@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+let list = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb", "fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"]
 
 /*
  * Display the cards on the page
@@ -9,6 +9,27 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+const decklist = document.querySelector(".deck");
+const restart = document.querySelector(".restart");
+
+function refreshDeck () {
+    shuffle(list);
+
+    decklist.innerHTML = "";
+    
+    let deck = "";
+    
+    for (const card of list) {
+    deck += `   <li class="card">
+            <i class="fa ${card}"></i>
+        </li>`;
+    }
+    
+    decklist.insertAdjacentHTML('beforeend', deck);
+}
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -25,6 +46,9 @@ function shuffle(array) {
     return array;
 }
 
+refreshDeck();
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -37,10 +61,3 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-let menu = document.querySelector("#show-content");
-let preventscrollcol = 0;
-menu.addEventListener("click", function(e) {
-  toopen();
-  preventscroll = true;
-  e.stopPropagation();
-});
