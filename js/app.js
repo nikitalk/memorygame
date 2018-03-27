@@ -66,12 +66,9 @@ let movesNumber = 0;
 let matchCardNumber = 0;
 
 decklist.addEventListener("click", function(event) {
-  if (secondCard === "") {
-    let target = event.target;
-
-    if (target.tagName == "LI") {
-      showCard(target);
-    }
+  let target = event.target;
+  if ((secondCard === "") && (target.tagName == "LI")) {
+    showCard(target);
   }
 });
 
@@ -85,7 +82,11 @@ function matchCard(node) {
 }
 
 function hideCard(node) {
-  node.classList.remove("open", "show");
+  node.classList.add("notmatch");
+  setTimeout(hide, 1000);
+  function hide(){
+    node.classList.remove("open", "show", "notmatch");
+  } 
 }
 
 function openCard(node) {
@@ -112,8 +113,8 @@ function showCard(node) {
           alert("You are win!");
         }
       } else {
-        hideCard(firstCard);
-        hideCard(secondCard);
+          hideCard(firstCard);
+          hideCard(secondCard);
       }
       firstCard = "";
       secondCard = "";
@@ -122,6 +123,8 @@ function showCard(node) {
     }
   }
 }
+
+
 
 /*
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
