@@ -53,44 +53,52 @@ let firstCard = '';
 let secondCard = '';
 
 decklist.addEventListener("click", function(event) {
+if (secondCard === '') {
     let target = event.target;
 
     if (target.tagName == 'LI') {
         showCard(target);
     }
+}
   
 });
 
+function matchCard (node) {
+    node.classList.add('match');   
+}
+
+function hideCard (node) {
+    node.classList.remove('open', 'show')
+}
+
+function openCard (node) {
+    node.classList.add('open', 'show');
+}
+
 function showCard(node) {
-       if (firstCard == '') {
-        firstCard = node.getElementsByTagName("i")[0].className;
-        console.log(firstCard);
-        node.classList.add('open', 'show');
-        selectedCard = node;
-    } else {
-          secondCard = node.getElementsByTagName("i")[0].className;
-          node.classList.add('open', 'show');
-          console.log(secondCard);
-          
-          setTimeout(func, 1000);
-          function func () {
-            if (firstCard === secondCard) {
-                selectedCard.classList.remove('open', 'show');
-                node.classList.remove('open', 'show');
-                  selectedCard.classList.add('match');
-                  node.classList.add('match');
-                  firstCard = '';
-                  secondCard = '';
-              } else {
-                 selectedCard.classList.remove('open', 'show');
-                node.classList.remove('open', 'show');
-                firstCard = '';
-                  secondCard = '';
-              }
-          }
-      }
-      
+    if (firstCard == '') {
+     firstCard = node;
+     openCard(firstCard);
+ } else {
+       secondCard = node
+       openCard(secondCard);
+       setTimeout(compare, 1000);
+       function compare () {
+           const firstCardName = firstCard.getElementsByTagName("i")[0].className;
+           const secondCardName = secondCard.getElementsByTagName("i")[0].className;
+         if (firstCardName === secondCardName) {
+               matchCard(firstCard);
+               matchCard(secondCard);
+           } else {
+             hideCard(firstCard);
+             hideCard(secondCard);
+           }
+           firstCard = '';
+           secondCard = '';
+       }
+   }     
 };
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
