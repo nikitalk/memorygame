@@ -104,17 +104,16 @@ function openCard(node) {
 }
 
 function showStars(numberStar) {
-  if (numberStar == 0) {
-    document.getElementById("star3").classList.remove("star");
-    document.getElementById("star2").classList.remove("star");
-    document.getElementById("star1").classList.remove("star");
-  }
   if (numberStar == 1) {
     document.getElementById("star3").classList.remove("star");
     document.getElementById("star2").classList.remove("star");
   }
   if (numberStar == 2) {
     document.getElementById("star3").classList.remove("star");
+  }
+  if (numberStar == 3) {
+    document.getElementById("star3").classList.add("star");
+    document.getElementById("star2").classList.add("star");
   }
 }
 
@@ -132,7 +131,7 @@ function showCard(node) {
         matchCard(firstCard);
         matchCard(secondCard);
         matchCardNumber++;
-        if (matchCardNumber === 8) {
+        if (matchCardNumber == 8) {
           popWinner();
           stop_timer();
         }
@@ -143,9 +142,7 @@ function showCard(node) {
       firstCard = "";
       secondCard = "";
       movesNumber++;
-      if (movesNumber > 15) {
-        showStars(0);
-      } else if (movesNumber > 12) {
+      if (movesNumber > 12) {
         showStars(1);
       } else if (movesNumber > 9) {
         showStars(2);
@@ -161,12 +158,13 @@ function popWinner() {
   winner.innerHTML = "";
   let deck = "";
 
-  deck = `<p align=center>Congratulations! You Won!<br>
+  deck = `<i class="check fa fa-check"></i>
+  <p>Congratulations! You Won!<br>
   With ${movesNumber} Moves and ${stars} Stars.<br>Your time is ${pad(
     parseInt(totalSeconds / 60)
   )}:${pad(totalSeconds % 60)}. <br>
   Woooooo!<br>
-  <button onclick="again()">Play again!</button></p>`;
+  <button class="myButton" onclick="again()">Play again!</button></p>`;
 
   winner.insertAdjacentHTML("beforeend", deck);
 }
@@ -174,8 +172,10 @@ function popWinner() {
 function again() {
   const winner = document.querySelector(".winner");
   winner.classList.remove("open");
+  
   refreshDeck();
   writeMoves(0);
+  showStars(3);
   stop_timer();
   zero_timer();
   begin = false;
