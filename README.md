@@ -2,7 +2,7 @@
 
 Project for the Udacity Front End Nanodegree program within Google Developer Scholarship
 
-You can take a look at this project here: https://nikita.lk.github.io/MemoryGame/
+You can take a look at this project here: https://nikitalk.github.io/memorygame/
 
 ## Getting Started
 
