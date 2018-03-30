@@ -14,4 +14,4 @@ Fork it if you want to improve it or suggest improvenments.
 
 ## Author
 
-**Nikita L. Karavaev** - [nikita.lk](https://github.com/Puritanic)
+**Nikita L. Karavaev** - [nikita.lk](https://github.com/nikita.lk)
