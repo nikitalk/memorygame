@@ -69,69 +69,59 @@ h1 {
   
   background: #02b3e4;
   cursor: default;
-  animation: polygons 1.5s;
+  animation: openanim 1.5s;
+}
+
+@keyframes openanim {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2) rotateY(360deg);   
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);    
+  }
 }
 
 .deck .card.show {
   font-size:53px;
-  
-}
-
-@keyframes polygons {
-  
-  50% {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2) rotateY(360deg);
-   
-  }
-
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    
-  }
-}
-
-@keyframes polygons2 {
-  50% {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@keyframes polygons3 {
-  
-  
-    50% {
-
- -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  
-
-  70% {
-   
-    
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
 }
 
 .deck .card.match {
   cursor: default;
   background: #02ccba;
-  animation: polygons2 1.5s;
+  animation: matchanim 1.5s;
+}
+
+@keyframes matchanim {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .deck .card.notmatch {
   cursor: default;
   background: #a30e0e;
-  animation: polygons3 1.5s;
+  animation: notmatchanim 1.5s;
+}
+
+@keyframes notmatchanim {
+  50% {
+   -webkit-transform: scale(1.2);
+   transform: scale(1.2);
+  }
+
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 /*
@@ -162,7 +152,8 @@ h1 {
 }
 
 .score-panel .time {
-  float: right;
+  float: left;
+  width: 100px;
   margin-right: 50px;
 }
 
@@ -179,7 +170,7 @@ h1 {
   box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
-.myButton {
+.button {
 	-moz-box-shadow: 4px 3px 12px -4px #3dc21b;
 	-webkit-box-shadow: 4px 3px 12px -4px #3dc21b;
 	box-shadow: 4px 3px 12px -4px #313131;
@@ -197,33 +188,19 @@ h1 {
 	text-decoration:none;
 }
 
-.myButton:hover {
+.button:hover {
 	background-color:#b6b6b6;
 }
 
-
-
 .winner.open {
   display: flex;
-  
-
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  animation: polygons4 .5s;
+  animation: popupanim .5s;
 }
 
-.star {
-  color: rgba(255, 255, 0, 0.699);
-}
-
-.check {
-  font-size:53px;
-  color: #44c767;
-  
-}
-
-@keyframes polygons4 {
+@keyframes popupanim {
   0% {
     -webkit-transform: scale(0);
     transform: scale(0);
@@ -234,3 +211,14 @@ h1 {
     transform: scale(1);
   }
 }
+
+.star {
+  color: rgb(255, 255, 0);
+  text-shadow: 0 0 1px rgb(0, 0, 0);
+}
+
+.check {
+  font-size:53px;
+  color: #44c767;  
+}
+

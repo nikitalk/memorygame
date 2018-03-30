@@ -1,20 +1,17 @@
 # Memory Game Project
 
-## Table of Contents
+Project for the Udacity Front End Nanodegree program within Google Developer Scholarship
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+You can take a look at this project here: https://nikita.lk.github.io/MemoryGame/
 
-## Instructions
+## Getting Started
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+This is a card game in which all of the cards are upside down. Two cards are flipped face up over each turn. The aim of the game is to turn over pairs of matching cards. 
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+Fork it if you want to improve it or suggest improvenments.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Author
+
+**Nikita L. Karavaev** - [nikita.lk](https://github.com/Puritanic)
