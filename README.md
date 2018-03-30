@@ -2,7 +2,7 @@
 
 Project for the Udacity Front End Nanodegree program within Google Developer Scholarship
 
-##Installing
+## Installing
 
 No installation is needed. There are two ways to begin:
 1) You can clone this project or [download](https://github.com/nikitalk/memorygame/archive/master.zip) and open index.html;
