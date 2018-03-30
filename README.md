@@ -19,3 +19,9 @@ Fork it if you want to improve it or suggest improvenments.
 ## Author
 
 **Nikita L. Karavaev** - [nikitalk](https://github.com/nikitalk)
+
+## Built with
+
+1) [Font Awesome](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css)
+2) [Google Fonts](https://fonts.googleapis.com/css?family=Coda)
+
